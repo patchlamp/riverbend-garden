@@ -2,8 +2,8 @@
 // calls it ("Quote requests"), or the columns; `db add` doesn't rewrite this file.
 export default {
   table: "submissions",
-  title: "Form submissions",
-  singular: "submission",
+  title: "Volunteer sign-ups",
+  singular: "sign-up",
   list: [["created_at", "Received"], ["name", "Name"], ["email", "Email"], ["form", "Form"], ["status", "Status"]],
   json: "fields",
   statuses: ["new", "replied", "done"],

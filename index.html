@@ -3,12 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Riverbend Community Garden</title>
-  <!-- REPLACE-ME: one sentence about Riverbend Community Garden for search results. -->
-  <meta name="description" content="Riverbend Community Garden — x">
+  <title>Riverbend Community Garden — Patchlamp's nonprofit demo</title>
+  <meta name="description" content="Riverbend Community Garden is Patchlamp's demo nonprofit: events, volunteers and a donate link, changed by text. Not a real garden.">
+  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <p class="demo-bar">
+    <strong>This is a demo.</strong> Riverbend Community Garden is not a real nonprofit — it is
+    <a href="https://patchlamp.com/">Patchlamp's</a> nonprofit demo. Text the demo number and whatever you ask for changes this site, usually in under a minute. It resets every night.
+  </p>
 
   <header class="site-header">
     <a class="wordmark" href="index.html">Riverbend Community Garden</a>
@@ -23,8 +28,7 @@
   <main>
     <section class="hero">
       <h1 class="hero-title">Riverbend Community Garden</h1>
-      <!-- REPLACE-ME: placeholder tagline — swap for the client's own line. -->
-      <p class="hero-tagline">x</p>
+      <p class="hero-tagline">Forty plots, one tool shed and a lot of zucchini. Everyone is welcome.</p>
       <div class="button-row">
         <a class="button" href="#events">What's on</a>
         <a class="button" href="#volunteer">Volunteer</a>
@@ -34,19 +38,20 @@
     <section class="section" id="mission">
       <div class="section-inner reveal">
         <p class="kicker">Who we are</p>
-        <h2>What we do</h2>
-        <p class="lede"><!-- REPLACE-ME --> Placeholder: the mission in a sentence or two — who it serves and how.</p>
-        <p>A second short paragraph, or delete it.</p>
+        <h2>Growing food together</h2>
+        <p class="lede">Riverbend is a volunteer-run community garden: forty plots for neighbours, a shared herb bed, and a harvest table that feeds whoever needs it. It is made up — a demo of what Patchlamp builds for a nonprofit, a church or an event.</p>
+        <p>Plots are free; the tools, water and seed swap run on volunteers and small gifts.</p>
       </div>
     </section>
     <section class="section" id="events">
       <div class="section-inner reveal">
         <p class="kicker">Calendar</p>
         <h2>What's on</h2>
-        <!-- REPLACE-ME: one <li> per event: a name, when (a date, or "every Saturday"), one line. Past ones come off. -->
         <ul class="card-list">
-          <li><h3>First event</h3><p class="card-meta">Every Saturday, 9am</p><p>One line about it.</p></li>
-          <li><h3>Second event</h3><p class="card-meta">First Tuesday of the month, 7pm</p><p>One line about it.</p></li>
+          <li><h3>Saturday work day</h3><p class="card-meta">Every Saturday, 9am–noon</p><p>Weeding, watering, compost. Gloves provided.</p></li>
+          <li><h3>Seed swap</h3><p class="card-meta">First Sunday of the month, 2pm</p><p>Bring seeds, take seeds.</p></li>
+          <li><h3>Harvest table</h3><p class="card-meta">Wednesdays, 5–7pm</p><p>Take what you need from the shared beds.</p></li>
+          <li><h3>Members' meeting</h3><p class="card-meta">Second Tuesday of the month, 7pm</p><p>Plot waiting list, budget, the shed roof.</p></li>
         </ul>
       </div>
     </section>
@@ -54,7 +59,7 @@
       <div class="section-inner reveal">
         <p class="kicker">Volunteer</p>
         <h2>Lend a hand</h2>
-        <p class="muted">Leave your name and we'll tell you about the next chance to help.</p>
+        <p class="muted">Leave your name and we'll tell you about the next work day. (A demo: sign-ups land in the owner's list on /admin.)</p>
         <form class="site-form" id="form" action="/api/submissions" method="post">
           <input type="hidden" name="_form" value="volunteer">
           <label>Name <input name="name" required autocomplete="name"></label>
@@ -79,11 +84,10 @@
       <div class="section-inner reveal">
         <p class="kicker">Donate</p>
         <h2>Give</h2>
-        <p>Placeholder: what a gift pays for, in a sentence.</p>
+        <p>A gift buys seed, hoses and the water bill. The button goes to the garden's own giving page.</p>
         <div class="button-row">
-          <a class="button" href="https://example.com/">Donate</a>
+          <a class="button" href="donate.html">Donate</a>
         </div>
-        <!-- REPLACE-ME: the button goes to the organisation's own giving page (PayPal, Givebutter, their bank's). The site never takes money itself. -->
       </div>
     </section>
     <section class="section" id="details">
@@ -93,15 +97,15 @@
         <div class="details-grid">
           <div>
             <h3>Where</h3>
-            <p><!-- REPLACE-ME --> 123 Example Street, Somewhere</p>
+            <p>A made-up garden, so no address. The real version says where the gate is.</p>
           </div>
           <div>
             <h3>Hours</h3>
-            <ul><li>Placeholder hours</li></ul>
+            <ul><li>Dawn to dusk, every day</li><li>Shed open Saturdays 9–12</li></ul>
           </div>
           <div>
             <h3>Contact</h3>
-            <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+            <p>Use the volunteer form above.</p>
           </div>
         </div>
       </div>
@@ -110,7 +114,7 @@
 
   <footer class="site-footer">
     <!-- Keep this footer identical on every page. -->
-    <p class="copyright">&copy; 2026 Riverbend Community Garden</p>
+    <p class="copyright">&copy; 2026 Riverbend Community Garden · a demo by <a href="https://patchlamp.com/">Patchlamp</a></p>
   </footer>
 
   <script src="js/main.js"></script>
