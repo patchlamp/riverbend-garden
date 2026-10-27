@@ -6,10 +6,12 @@
   <title>Riverbend Community Garden — Patchlamp's nonprofit demo</title>
   <meta name="description" content="Riverbend Community Garden is Patchlamp's demo nonprofit: events, volunteers and a donate link, changed by text. Not a real garden.">
   <meta name="robots" content="noindex">
+  <!-- The pages are rendered from site.json by `site render` (lib/sitegen.py): change site.json, never this file. -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/look.css">
+  <script src="js/motion.js" defer></script>
 </head>
-<body>
-
+<body class="page-home">
   <p class="demo-bar">
     <strong>This is a demo.</strong> Riverbend Community Garden is not a real nonprofit — it is
     <a href="https://patchlamp.com/">Patchlamp's</a> nonprofit demo. Text the demo number and whatever you ask for changes this site, usually in under a minute. It resets every night.
@@ -18,108 +20,151 @@
   <header class="site-header">
     <a class="wordmark" href="index.html">Riverbend Community Garden</a>
     <nav class="site-nav" aria-label="Site">
-      <a href="index.html" aria-current="page">Home</a>
       <a href="index.html#events">Events</a>
-      <a href="index.html#volunteer">Volunteer</a>
+      <a href="index.html#about">About</a>
       <a href="donate.html">Donate</a>
     </nav>
+    <a class="header-cta" href="#signup"><span class="cta-full">Volunteer</span><span class="cta-short">Volunteer</span></a>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1 class="hero-title">Riverbend Community Garden</h1>
-      <p class="hero-tagline">Forty plots, one tool shed and a lot of zucchini. Everyone is welcome.</p>
-      <div class="button-row">
-        <a class="button" href="#events">What's on</a>
-        <a class="button" href="#volunteer">Volunteer</a>
-        <a class="button" href="donate.html">Donate</a>
+  <main id="top">
+    <section class="hero-block hero--full-dark has-image" id="hero">
+      <figure class="hero-media">
+        <picture><source type="image/avif" srcset="images/hero-37487180-800.avif 800w, images/hero-37487180-1600.avif 1600w" sizes="100vw"><source type="image/webp" srcset="images/hero-37487180-800.webp 800w, images/hero-37487180-1600.webp 1600w" sizes="100vw"><img src="images/hero-37487180-1600.jpg" srcset="images/hero-37487180-800.jpg 800w, images/hero-37487180-1600.jpg 1600w" sizes="100vw" width="1600" height="900" alt="Vibrant community garden with raised beds on a sunny day in Washington Crossing, Pennsylvania." loading="eager" fetchpriority="high" decoding="async"></picture><span class="img-label">Stock photo</span>
+      </figure>
+      <div class="hero-copy">
+        <h1 class="hero-heading">Forty plots, one tool shed and a lot of zucchini. Everyone is welcome.</h1>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#signup">Volunteer</a>
+          <a class="btn btn-secondary" href="#events">What's on</a>
+        </div>
+        <p class="hero-note">Dawn to dusk, every day · Shed open Saturdays 9–12</p>
       </div>
     </section>
-    <section class="section" id="mission">
-      <div class="section-inner reveal">
-        <p class="kicker">Who we are</p>
-        <h2>Growing food together</h2>
-        <p class="lede">Riverbend is a volunteer-run community garden: forty plots for neighbours, a shared herb bed, and a harvest table that feeds whoever needs it. It is made up — a demo of what Patchlamp builds for a nonprofit, a church or an event.</p>
-        <p>Plots are free; the tools, water and seed swap run on volunteers and small gifts.</p>
-      </div>
-    </section>
-    <section class="section" id="events">
-      <div class="section-inner reveal">
-        <p class="kicker">Calendar</p>
-        <h2>What's on</h2>
-        <ul class="card-list">
-          <li><h3>Saturday work day</h3><p class="card-meta">Every Saturday, 9am–noon</p><p>Weeding, watering, compost. Gloves provided.</p></li>
-          <li><h3>Seed swap</h3><p class="card-meta">First Sunday of the month, 2pm</p><p>Bring seeds, take seeds.</p></li>
-          <li><h3>Harvest table</h3><p class="card-meta">Wednesdays, 5–7pm</p><p>Take what you need from the shared beds.</p></li>
-          <li><h3>Members' meeting</h3><p class="card-meta">Second Tuesday of the month, 7pm</p><p>Plot waiting list, budget, the shed roof.</p></li>
-        </ul>
-      </div>
-    </section>
-    <section class="section" id="volunteer">
-      <div class="section-inner reveal">
-        <p class="kicker">Volunteer</p>
-        <h2>Lend a hand</h2>
-        <p class="muted">Leave your name and we'll tell you about the next work day. (A demo: sign-ups land in the owner's list on /admin.)</p>
-        <form class="site-form" id="form" action="/api/submissions" method="post">
-          <input type="hidden" name="_form" value="volunteer">
-          <label>Name <input name="name" required autocomplete="name"></label>
-          <label>Email <input name="email" type="email" required autocomplete="email"></label>
-          <label>Phone <input name="phone" type="tel" autocomplete="tel"></label>
-          <label>What would you like to help with? <textarea name="message" rows="4" required></textarea></label>
-          <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-          <button class="button" type="submit">Sign me up</button>
-          <p class="form-thanks" hidden>Thanks for signing up — we'll be in touch.</p>
-          <p class="form-sorry" hidden>That didn't go through. Please try again, or call us.</p>
-          <script>
-            (function () {
-              var f = document.getElementById("form"), q = location.search;
-              if (/[?&]sent=0/.test(q)) f.querySelector(".form-sorry").hidden = false;
-              else if (/[?&]sent=/.test(q)) f.querySelector(".form-thanks").hidden = false;
-            })();
-          </script>
-        </form>
-      </div>
-    </section>
-    <section class="section" id="donate">
-      <div class="section-inner reveal">
-        <p class="kicker">Donate</p>
-        <h2>Give</h2>
-        <p>A gift buys seed, hoses and the water bill. The button goes to the garden's own giving page.</p>
-        <div class="button-row">
-          <a class="button" href="donate.html">Donate</a>
+    <section class="section about about--band band" id="about">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-copy">
+            <div class="about-head">
+              <p class="kicker">Who we are</p>
+              <h2>Growing food together</h2>
+            </div>
+            <div class="about-body">
+              <p class="lede">Riverbend is a volunteer-run community garden: forty plots for neighbours, a shared herb bed, and a harvest table that feeds whoever needs it. It is made up — a demo of what Patchlamp builds for a nonprofit, a church or an event.</p>
+              <p class="">Plots are free; the tools, water and seed swap run on volunteers and small gifts.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section class="section" id="details">
-      <div class="section-inner reveal">
-        <p class="kicker">Details</p>
-        <h2>Find us</h2>
+    <section class="section events events--agenda alt" id="events">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="kicker">Calendar</p>
+          <h2>What's on</h2>
+        </div>
+        <ul class="event-list">
+          <li data-reveal>
+            <p class="event-when">Every Saturday, 9am–noon</p>
+            <h3>Saturday work day</h3>
+            <p class="event-text">Weeding, watering, compost. Gloves provided.</p>
+          </li>
+          <li data-reveal>
+            <p class="event-when">First Sunday of the month, 2pm</p>
+            <h3>Seed swap</h3>
+            <p class="event-text">Bring seeds, take seeds.</p>
+          </li>
+          <li data-reveal>
+            <p class="event-when">Wednesdays, 5–7pm</p>
+            <h3>Harvest table</h3>
+            <p class="event-text">Take what you need from the shared beds.</p>
+          </li>
+          <li data-reveal>
+            <p class="event-when">Second Tuesday of the month, 7pm</p>
+            <h3>Members' meeting</h3>
+            <p class="event-text">Plot waiting list, budget, the shed roof.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section signup signup--card" id="signup">
+      <div class="section-inner">
+        <div class="form-grid">
+          <div class="section-head">
+            <p class="kicker">Volunteer</p>
+            <h2>Lend a hand</h2>
+            <p class="lede">Leave your name and we'll tell you about the next work day. (A demo: sign-ups land in the owner's list on /admin.)</p>
+          </div>
+          <div class="form-card" data-reveal>
+            <form class="site-form" id="form" action="/api/submissions" method="post">
+              <input type="hidden" name="_form" value="volunteer">
+              <fieldset class="form-fields">
+                <div class="field-row">
+                  <label>Name <input name="name" required autocomplete="name"></label>
+                  <label>Email <input name="email" type="email" required autocomplete="email"></label>
+                  <label>Phone <input name="phone" type="tel" autocomplete="tel"></label>
+                </div>
+                <label>What would you like to help with? <textarea name="message" rows="4" required></textarea></label>
+                <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+                <button class="btn btn-primary" type="submit">Sign me up</button>
+              </fieldset>
+              <p class="form-thanks" hidden>Thanks for signing up — we'll be in touch.</p>
+              <p class="form-sorry" hidden>That didn't go through. Please try again, or call us.</p>
+              <script>
+                (function () {
+                  var f = document.getElementById("form"), q = location.search;
+                  if (/[?&]sent=0/.test(q) && location.hash === "#form") f.querySelector(".form-sorry").hidden = false;
+                  else if (/[?&]sent=/.test(q)) f.querySelector(".form-thanks").hidden = false;
+                })();
+              </script>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section donate donate--split" id="donate">
+      <div class="section-inner">
+        <div class="donate-grid" data-reveal>
+          <div class="section-head">
+            <h2>Give</h2>
+          </div>
+          <div class="donate-copy">
+            <p class="lede">A gift buys seed, hoses and the water bill. The button goes to the garden's own giving page.</p>
+            <div class="action-row">
+              <a class="btn btn-primary" href="donate.html">Donate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section details details--table alt" id="details">
+      <div class="section-inner">
         <div class="details-grid">
-          <div>
-            <h3>Where</h3>
+          <div class="details-hours">
+            <h2>Find us</h2>
+            <h3 class="details-label">Hours</h3>
+            <ul class="hours hours-table">
+              <li>Dawn to dusk, every day</li>
+              <li>Shed open Saturdays 9–12</li>
+            </ul>
+          </div>
+          <div class="details-side">
+            <h3 class="details-label">Where</h3>
             <p>A made-up garden, so no address. The real version says where the gate is.</p>
-          </div>
-          <div>
-            <h3>Hours</h3>
-            <ul><li>Dawn to dusk, every day</li><li>Shed open Saturdays 9–12</li></ul>
-          </div>
-          <div>
-            <h3>Contact</h3>
+            <h3 class="details-label">Contact</h3>
             <p>Use the volunteer form above.</p>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <!-- Keep this footer identical on every page. -->
-    <p class="copyright">&copy; 2026 Riverbend Community Garden · a demo by <a href="https://patchlamp.com/">Patchlamp</a></p>
+    <p class="copyright">&copy; 2026 Riverbend Community Garden · <a href="/admin">Owner sign-in</a></p>
     <p class="patchlamp-badge"><a href="https://patchlamp.com/for/nonprofits?from=badge" rel="noopener">Patched by Patchlamp</a></p>
     <script src="https://patchlamp.com/s/site-chat.js" data-site="demo-nonprofit" crossorigin="anonymous" defer></script>
     <script src="https://patchlamp.com/hit.js" data-site="demo-nonprofit" crossorigin="anonymous" defer></script>
   </footer>
-
-  <script src="js/main.js"></script>
 </body>
 </html>
